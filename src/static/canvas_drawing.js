@@ -1,12 +1,12 @@
 const canvas = document.getElementById('drawing-field');
-const ctx = canvas.getContext('2d');
+const context = canvas.getContext('2d');
 let isDrawing = false;
 
-ctx.fillStyle = 'white';
-ctx.fillRect(0, 0, canvas.width, canvas.height);
-ctx.strokeStyle = 'black';
-ctx.lineWidth = 10;
-ctx.lineCap = 'round';
+context.fillStyle = 'white';
+context.fillRect(0, 0, canvas.width, canvas.height);
+context.strokeStyle = 'black';
+context.lineWidth = 10;
+context.lineCap = 'round';
 
 canvas.addEventListener('mousedown', startDrawing);
 canvas.addEventListener('mousemove', draw);
@@ -43,13 +43,13 @@ function draw(e) {
     const x = e.clientX - rect.left;
     const y = e.clientY - rect.top;
 
-    ctx.lineTo(x, y);
-    ctx.stroke();
-    ctx.beginPath();
-    ctx.moveTo(x, y);
+    context.lineTo(x, y);
+    context.stroke();
+    context.beginPath();
+    context.moveTo(x, y);
 }
 
 function stopDrawing() {
     isDrawing = false;
-    ctx.beginPath();
+    context.beginPath();
 }
