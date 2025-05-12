@@ -28,7 +28,11 @@ def predict(image: ImageModel):
     digit = int(np.argmax(predictions))
     confidence = float(np.max(predictions))
 
-    return {"digit": digit, "confidence": confidence, "full_predict": predictions}
+    return {
+        "digit": digit,
+        "confidence": confidence,
+        "full_predict": predictions[0].tolist()
+    }
 
 
 app.mount("/", StaticFiles(directory="./static", html=True), name="static")

@@ -19,8 +19,10 @@ function updatePredict(){
         },
         body: JSON.stringify({image: imageData})
     })
+    .then(response => response.json())
     .then(response => {
         resultLabel.textContent = response.digit;
+        console.log(response.digit);
     })
     .catch(error => console.log(error));
 }

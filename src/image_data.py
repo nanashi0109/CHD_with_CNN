@@ -28,7 +28,8 @@ class ImageModel(BaseModel):
     def __normalize_image(self, image: Image) -> np.array:
         image_array = np.array(image)
         image_array = 255 - image_array
-        image_array = image_array / 255.0
-        image_array = np.expand_dims(image_array, axis=(0, -1))
+
+        image_array = image_array.reshape((1, 28 * 28))
+        image_array = image_array.astype('float32') / 255
 
         return image_array
