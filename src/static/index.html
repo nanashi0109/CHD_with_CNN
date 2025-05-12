@@ -7,24 +7,26 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>Распознавание рукописных цифр (0-9)</h1>
-    <div class="result-container">
-        <h2>Результат: </h2>
-        <h3 id="result" class="result">Нарисуйте цифру</h3>
-        
-        <h3>Вероятности: </h3>
-        <div id="full-predict" class="full-predict"></div>
-    </div>
+    <h1 class="header">Распознавание рукописных цифр (0-9)</h1>
+    
+    <div class="container">
+        <div class="drawing-container">
+            <canvas id="drawing-field" class="drawing-filed"></canvas>
+            
+            <div class="drawing-buttons">
+                <button id="clear-button" class="clear-button">Очистить</button>
+                <button id="predict-button" class="predict-button">Распознать</button>
+            </div>
+        </div>
 
-    <div class="drawing-container">
-        <canvas id="drawing-field" class="drawing-filed"></canvas>
-        
-        <div class="drawing-buttons">
-            <button id="clear-button">Очистить</button>
-            <button id="predict-button">Распознать</button>
+        <div class="result-container">
+            <h2>Результат: </h2>
+            <h3 id="result" class="result">Нарисуйте цифру</h3>
+            
+            <h2>Вероятности: </h2>
+            <div id="full-predict" class="full-predict"></div>
         </div>
     </div>
-
     <script src="scripts.js"></script>
 </body>
 </html>

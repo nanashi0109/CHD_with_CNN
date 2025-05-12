@@ -1,0 +1,66 @@
+*{
+    margin: 0px;
+}
+
+.header{
+    text-align: center;
+    margin: 20px;
+}
+
+.container{
+    display: flex;
+    flex-direction: row;
+
+    justify-content: center;
+}
+
+.result-container{
+    margin: 10px;
+}
+
+.result{
+    margin: 20px;
+}
+
+.full-predict{
+
+}
+
+.drawing-container{
+    margin: 10px;
+}
+
+.drawing-filed{
+    width: 280px;
+    height: 280px;
+    
+    border-color: black;
+    border-width: 2px;
+    border-style: solid;
+}
+
+.drawing-buttons{
+    display: flex;
+    height: 45px;
+
+    justify-content: space-around;
+}
+
+button{
+    border-width: 0px;
+    border-radius: 3px;
+    
+    margin: 0px 10px 0px 10px;
+    color: white;
+
+    font-size: 20px;
+    flex-grow: 1;
+}
+
+.clear-button{
+    background-color: rgb(219, 45, 45);
+}
+
+.predict-button{
+    background-color:rgb(115, 172, 58);
+}
