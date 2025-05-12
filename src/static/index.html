@@ -8,10 +8,10 @@
 </head>
 <body>
     <h1 class="header">Распознавание рукописных цифр (0-9)</h1>
-    
+
     <div class="container">
         <div class="drawing-container">
-            <canvas id="drawing-field" class="drawing-filed"></canvas>
+            <canvas id="drawing-field" class="drawing-filed" width="280" height="280"></canvas>
             
             <div class="drawing-buttons">
                 <button id="clear-button" class="clear-button">Очистить</button>
@@ -27,6 +27,8 @@
             <div id="full-predict" class="full-predict"></div>
         </div>
     </div>
+    
+    <script src="canvas_drawing.js"></script>
     <script src="scripts.js"></script>
 </body>
 </html>

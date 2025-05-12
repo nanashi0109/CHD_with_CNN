@@ -5,7 +5,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 from keras.models import load_model
-from assets.constants import CNN_NAME
+from src.tools.constants import CNN_PATH
 
 app = FastAPI()
 
@@ -17,9 +17,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-app.mount("/static", StaticFiles(directory="static"), name="static")
-
-network = load_model(CNN_NAME)
+network = load_model(CNN_PATH)
 
 
 @app.post("/predict")
@@ -31,6 +29,9 @@ def predict(image: ImageModel):
     confidence = float(np.max(predictions))
 
     return {"digit": digit, "confidence": confidence, "full_predict": predictions}
+
+
+app.mount("/", StaticFiles(directory="./static", html=True), name="static")
 
 
 if __name__ == "__main__":

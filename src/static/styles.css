@@ -23,7 +23,7 @@
 }
 
 .full-predict{
-
+    margin: 5px;
 }
 
 .drawing-container{
@@ -31,9 +31,7 @@
 }
 
 .drawing-filed{
-    width: 280px;
-    height: 280px;
-    
+    cursor: crosshair;
     border-color: black;
     border-width: 2px;
     border-style: solid;

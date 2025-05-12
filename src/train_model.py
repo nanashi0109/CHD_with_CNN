@@ -2,6 +2,7 @@ from keras import models
 from keras import layers
 from keras.utils import to_categorical
 from keras.datasets import mnist
+from src.tools.constants import CNN_PATH
 
 (train_images, train_labels), (test_images, test_labels) = mnist.load_data()
 
@@ -21,4 +22,4 @@ test_labels = to_categorical(test_labels)
 
 network.fit(train_images, train_labels, epochs=5, batch_size=128)
 
-network.save('mnist_cnn.h5')
+network.save(CNN_PATH)
