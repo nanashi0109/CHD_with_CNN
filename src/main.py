@@ -1,3 +1,5 @@
+import numpy as np
+
 from image_data import ImageModel
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
@@ -18,6 +20,18 @@ app.add_middleware(
 app.mount("/static", StaticFiles(directory="static"), name="static")
 
 network = load_model(CNN_NAME)
+
+
+@app.post("/predict")
+def predict(image: ImageModel):
+    processing_image = image.process_image()
+
+    predictions = network.predict(processing_image)
+    digit = int(np.argmax(predictions))
+    confidence = float(np.max(predictions))
+
+    return {"digit": digit, "confidence": confidence, "full_predict": predictions}
+
 
 if __name__ == "__main__":
     import uvicorn
