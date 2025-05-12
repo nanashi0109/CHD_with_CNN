@@ -1,7 +1,9 @@
-from ImageData import ImageModel
+from image_data import ImageModel
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
+from keras.models import load_model
+from assets.constants import CNN_NAME
 
 app = FastAPI()
 
@@ -15,6 +17,7 @@ app.add_middleware(
 
 app.mount("/static", StaticFiles(directory="static"), name="static")
 
+network = load_model(CNN_NAME)
 
 if __name__ == "__main__":
     import uvicorn
