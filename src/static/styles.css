@@ -16,10 +16,12 @@
 
 .result-container{
     margin: 10px;
+    width: 280px;
 }
 
 .result{
-    margin: 20px;
+    margin: 10px;
+    text-align: center;
 }
 
 .full-predict{
@@ -61,4 +63,37 @@ button{
 
 .predict-button{
     background-color:rgb(115, 172, 58);
+}
+
+.full-predoct-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.digit-label {
+    width: 20px;
+    font-weight: bold;
+}
+
+.predict-bar-out {
+    flex-grow: 1;
+    margin-left: 10px;
+    background-color:aliceblue;
+    height: 20px;
+    border-radius: 4px;
+    position: relative;
+}
+
+.predict-bar-in {
+    height: 100%;
+    background-color: #4CAF50;
+}
+
+.predict-percent {
+    position: absolute;
+    right: 5px;
+    top: 0;
+    font-size: 12px;
+    line-height: 20px;
 }

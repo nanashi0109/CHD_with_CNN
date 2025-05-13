@@ -26,11 +26,9 @@ def predict(image: ImageModel):
 
     predictions = network.predict(processing_image)
     digit = int(np.argmax(predictions))
-    confidence = float(np.max(predictions))
 
     return {
         "digit": digit,
-        "confidence": confidence,
         "full_predict": predictions[0].tolist()
     }
 
