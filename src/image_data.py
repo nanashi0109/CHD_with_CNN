@@ -15,6 +15,8 @@ class ImageModel(BaseModel):
         image = Image.open(io.BytesIO(byte_image)).convert('L')
         image = image.resize((28, 28))
 
+        image.save("another.jpg", format="JPEG")
+
         result = self.__normalize_image(image)
 
         return result
