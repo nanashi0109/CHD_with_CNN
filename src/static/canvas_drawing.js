@@ -13,22 +13,6 @@ canvas.addEventListener('mousemove', draw);
 canvas.addEventListener('mouseup', stopDrawing);
 canvas.addEventListener('mouseout', stopDrawing);
 
-canvas.addEventListener('touchstart', handleTouch);
-canvas.addEventListener('touchmove', handleTouch);
-canvas.addEventListener('touchend', stopDrawing);
-
-function handleTouch(e) {
-    e.preventDefault();
-    const touch = e.touches[0];
-    const mouseEvent = new MouseEvent(
-        e.type === 'touchstart' ? 'mousedown' : 'mousemove',
-        {
-            clientX: touch.clientX,
-            clientY: touch.clientY
-        }
-    );
-    canvas.dispatchEvent(mouseEvent);
-}
 
 function startDrawing(e) {
     isDrawing = true;

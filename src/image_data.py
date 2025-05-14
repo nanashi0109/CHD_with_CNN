@@ -13,9 +13,6 @@ class ImageModel(BaseModel):
         byte_image = self.__decode_image()
 
         image = Image.open(io.BytesIO(byte_image)).convert('L')
-        image = image.resize((28, 28))
-
-        image.save("another.jpg", format="JPEG")
 
         result = self.__normalize_image(image)
 
@@ -28,6 +25,8 @@ class ImageModel(BaseModel):
         return byte_data
 
     def __normalize_image(self, image: Image) -> np.array:
+        image = image.resize((28, 28))
+
         image_array = np.array(image)
         image_array = 255 - image_array
 
