@@ -5,7 +5,7 @@
 Дополнительно о приложении можно узнать [в SDP документе](https://docs.google.com/document/d/1-gitEo7p5OXwwIWv8irYO3gs_NyYz3IAxwYDQ4qFvO4/edit?usp=sharing).
 
 ## Установка
-Убедитесь, что вы используете версию Python **3.7**
+Убедитесь, что вы используете Python **3.7**
 1. Клонирование репозитория  
 `git clone https://github.com/nanashi0109/CHD_with_CNN.git`
 2. Создание виртуальной среды  
