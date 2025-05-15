@@ -5,7 +5,7 @@ let isDrawing = false;
 context.fillStyle = 'white';
 context.fillRect(0, 0, canvas.width, canvas.height);
 context.strokeStyle = 'black';
-context.lineWidth = 10;
+context.lineWidth =25;
 context.lineCap = 'round';
 
 canvas.addEventListener('mousedown', startDrawing);
