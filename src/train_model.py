@@ -10,8 +10,6 @@ network = models.Sequential()
 network.add(layers.Dense(512, activation='relu', input_shape=(28 * 28,)))
 network.add(layers.Dense(256, activation='relu'))
 network.add(layers.Dense(128, activation='relu'))
-network.add(layers.Dense(64, activation='relu'))
-network.add(layers.Dense(32, activation='relu'))
 network.add(layers.Dense(10, activation='softmax'))
 
 network.compile(optimizer='rmsprop', loss='categorical_crossentropy', metrics=['accuracy'])

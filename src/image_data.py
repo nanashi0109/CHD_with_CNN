@@ -24,7 +24,7 @@ class ImageModel(BaseModel):
 
         return byte_data
 
-    def __digit_to_center(self, image):
+    def __replace_digit_to_center(self, image):
         bbox = ImageChops.invert(image).getbbox()
 
         cropped_img = image.crop(bbox)
@@ -37,7 +37,6 @@ class ImageModel(BaseModel):
         new_image.paste(cropped_img, (x_center, y_center))
 
         new_image = new_image.resize((28, 28))
-        new_image.save('another.jpg')
 
         return new_image
 
