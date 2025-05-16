@@ -5,6 +5,8 @@ import io
 import base64
 import re
 
+from tools.constants import MNIST_SCALE
+
 
 class ImageModel(BaseModel):
     image: str
@@ -21,7 +23,6 @@ class ImageModel(BaseModel):
     def __decode_image(self):
         image_data = re.sub('^data:image/.+;base64,', '', self.image)
         byte_data = base64.b64decode(image_data)
-
         return byte_data
 
     def __replace_digit_to_center(self, image):
@@ -29,20 +30,23 @@ class ImageModel(BaseModel):
 
         cropped_img = image.crop(bbox)
 
-        new_image = Image.new("L", image.size, 255)
+        width, height = cropped_img.size
+        scale = min(MNIST_SCALE / width, MNIST_SCALE / height)
 
-        x_center = (image.width - cropped_img.width) // 2
-        y_center = (image.height - cropped_img.height) // 2
+        new_width = int(width * scale)
+        new_height = int(height * scale)
+        resized_img = cropped_img.resize((new_width, new_height))
 
-        new_image.paste(cropped_img, (x_center, y_center))
+        new_image = Image.new("L", (MNIST_SCALE, MNIST_SCALE), 255)
 
-        new_image = new_image.resize((28, 28))
-        new_image.save("another.jpg")
+        x_center = (MNIST_SCALE - new_width) // 2
+        y_center = (MNIST_SCALE - new_height) // 2
+
+        new_image.paste(resized_img, (x_center, y_center))
 
         return new_image
 
     def __normalize_image(self, image: Image) -> np.array:
-
         image_array = np.array(image)
         image_array = 255 - image_array
 
