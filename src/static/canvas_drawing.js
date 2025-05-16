@@ -5,7 +5,7 @@ let isDrawing = false;
 context.fillStyle = 'white';
 context.fillRect(0, 0, canvas.width, canvas.height);
 context.strokeStyle = 'black';
-context.lineWidth =25;
+context.lineWidth = 25;
 context.lineCap = 'round';
 
 canvas.addEventListener('mousedown', startDrawing);
@@ -14,18 +14,18 @@ canvas.addEventListener('mouseup', stopDrawing);
 canvas.addEventListener('mouseout', stopDrawing);
 
 
-function startDrawing(e) {
+function startDrawing(mouse) {
     isDrawing = true;
-    draw(e);
+    draw(mouse);
 }
 
-function draw(e) {
+function draw(mouse) {
     if (!isDrawing) 
         return;
 
     const rect = canvas.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
+    const x = mouse.clientX - rect.left;
+    const y = mouse.clientY - rect.top;
 
     context.lineTo(x, y);
     context.stroke();

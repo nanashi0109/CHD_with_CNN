@@ -13,7 +13,7 @@ class ImageModel(BaseModel):
         byte_image = self.__decode_image()
 
         image = Image.open(io.BytesIO(byte_image)).convert('L')
-        image = self.__digit_to_center(image)
+        image = self.__replace_digit_to_center(image)
         result = self.__normalize_image(image)
 
         return result
@@ -37,6 +37,7 @@ class ImageModel(BaseModel):
         new_image.paste(cropped_img, (x_center, y_center))
 
         new_image = new_image.resize((28, 28))
+        new_image.save("another.jpg")
 
         return new_image
 

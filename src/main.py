@@ -22,9 +22,9 @@ network = load_model(CNN_PATH)
 
 @app.post("/predict")
 def predict(image: ImageModel):
-    processing_image = image.process_image()
+    processed_image = image.process_image()
 
-    predictions = network.predict(processing_image)
+    predictions = network.predict(processed_image)
     digit = int(np.argmax(predictions))
 
     return {

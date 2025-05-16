@@ -23,8 +23,6 @@ function updatePredict(){
     .then(response => {
         resultLabel.textContent = response.digit;
         updateFullPredict(response.full_predict);
-        console.log(response.digit);
-        console.log(response.full_predict);
     })
     .catch(error => console.log(error));
 }
